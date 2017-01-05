@@ -61,7 +61,8 @@ func Float64(name string, value float64) Data {
 }
 
 // Any returns a Data recording any possible value type boxed in an empty
-// interface.  Some codecs may
+// interface.  Codecs may treat the value differently depending on the actual
+// type and its interfaces (e.g. calling String if the value is a fmt.Stringer).
 func Any(name string, value interface{}) Data {
 	return Data{name: name, valueType: ValueTypeAny, any: value}
 }
