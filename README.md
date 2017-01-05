@@ -28,7 +28,7 @@ that context.
 
   Selective debugging is not quite the same as traditional log "levels" as there
   is no heirarchy of levels to pick between.  Debug logs are neither
-  "higher" or "lower" than non-debug logs.
+  "higher" nor "lower" than non-debug logs.
 
   If you must have log levels, something similar can likely be accomplished
   using tags.  If not, this package is probably not for you.
