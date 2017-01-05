@@ -76,7 +76,8 @@ type Codec interface {
 	// data passed to Log.
 	//
 	// To prevent out-of-order written log entries, the write of the encoded
-	// entry must only be written once a read of the write channel unblocks.
+	// entry must only be written once a read of the writeReady channel
+	// unblocks.
 	EncodeLogEntry(t time.Time, tags []KV, message string, data []Data, encodeDone func(), writeReady <-chan struct{})
 }
 
