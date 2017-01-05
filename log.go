@@ -137,9 +137,13 @@ func Log(ctx context.Context, message string, data ...Data) {
 	encodesDone.Wait()
 }
 
-// Debug is a debugging log function that can be disabled at build time by
-// building the package with the "release" build tag. built with the "debug"
-// build tag.  An extra "debug" logging tag is added to each debug log entry.
+// Debug is a debugging log function that adds an extra "debug" log tag to each
+// log entry.  Debugging is not turned on by default but can be enabled at
+// runtime either per-context or globally (see SetDebuggingEnabled and
+// SetGlobalDebuggingEnabled).
+//
+// If this package was built with the "release" build tag, all debugging is
+// turned off and is not included in the generated code.
 func Debug(ctx context.Context, message string, data ...Data) {
 	debug(ctx, message, data...)
 }
