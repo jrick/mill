@@ -49,17 +49,13 @@ func withDebuggingInitialized(ctx context.Context) context.Context {
 
 func setDebuggingEnabled(ctx context.Context, enabled bool) {
 	if v := ctx.Value(debugKey{}); v != nil {
-		val := v.(*debugValue)
-		val.mu.Lock()
-		val.enabled = enabled
-		val.mu.Unlock()
+		v.(*debugValue).setEnabled(enabled)
 	}
 }
 
 func debuggingEnabled(ctx context.Context) bool {
 	if v := ctx.Value(debugKey{}); v != nil {
-		val := v.(*debugValue)
-		return val.isEnabled()
+		return v.(*debugValue).isEnabled()
 	}
 	return false
 }
