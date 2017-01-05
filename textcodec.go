@@ -84,5 +84,6 @@ func (c *textCodec) EncodeLogEntry(t time.Time, tags []KV, message string, data 
 
 	<-writeReady
 	_, _ = buf.WriteTo(c.writer)
+	buf.Reset()
 	c.pool.Put(buf)
 }
