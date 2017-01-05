@@ -21,10 +21,14 @@ that context.
 
 * Log levels
 
-  I believe "debug" is the only log level I will ever need or want, and I am not
-  alone in this sentiment (see Dave Cheney's take on the subject
+  I believe "debug" is the only extra log verbosity I will ever need or want,
+  and I am not alone in this sentiment (see Dave Cheney's take on the subject
   [here](https://dave.cheney.net/2015/11/05/lets-talk-about-logging)).  If
   something is worth logging, just log it.
+
+  Selective debugging is not quite the same as traditional log "levels" as there
+  is no heirarchy of levels to pick between.  Debug logs are neither
+  "higher" or "lower" than non-debug logs.
 
   If you must have log levels, something similar can likely be accomplished
   using tags.  If not, this package is probably not for you.
