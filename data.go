@@ -45,6 +45,12 @@ func String(name string, value string) Data {
 	return Data{name: name, valueType: ValueTypeString, string: value}
 }
 
+// Error is a convenience function that returns a String data type by calling
+// the error.Error method of the value.  The data field name is simply "error".
+func Error(value error) Data {
+	return String("error", value.Error())
+}
+
 // Int64 returns a Data recording an int64.
 func Int64(name string, value int64) Data {
 	return Data{name: name, valueType: ValueTypeInt64, numBits: uint64(value)}
